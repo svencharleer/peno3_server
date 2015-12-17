@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example of receiving data</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="application/javascript">
+        var socket = io();
+        socket.emit("register", {groupid:"Z1", sessionid:1});
+        socket.on("broadcastReceived", function(data) {
+            console.log("received " +JSON.stringify(data));
+        });
+        socket.on("registered", function(msg){
+            console.log(msg);
+        })
+
+    </script>
+</head>
+<body>
+<code>
+    var socket = io();<br/>
+    socket.emit("register", {groupid:"Z1", sessionid:1});<br/>
+    <br/>
+    socket.on("broadcastReceived", function(data) {<br/>
+    &nbsp;&nbsp;&nbsp;console.log("received " +JSON.stringify(data));<br/>
+    });<br/>
+    <br/>
+    socket.on("registered", function(msg){<br/>
+    &nbsp;&nbsp;&nbsp;console.log(msg);<br/>
+    })<br/>
+</code>
+</body>
+</html>

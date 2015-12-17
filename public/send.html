@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example of receiving data</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="application/javascript">
+        var socket = io();
+        socket.emit("broadcast", {groupid:"Z1", sessionid:"1", data:{"message": "this is a message", "interesting":"it is not"}});
+        socket.on("broadcasted", function(msg){
+            console.log(msg);
+        })
+
+    </script>
+</head>
+<body>
+<code>
+    var socket = io();<br/>
+    socket.emit("broadcast", {groupid:"Z1", sessionid:"1", data:{"message": "this is a message", "interesting":"it is not"}});<br/>
+    socket.on("broadcasted", function(msg){<br/>
+    &nbsp;&nbsp;&nbsp;console.log(msg);<br/>
+    })
+</code>
+</body>
+</html>
